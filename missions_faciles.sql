@@ -49,3 +49,19 @@ SELECT *
 FROM `transaction`
 WHERE date = '2019-04-20'
     AND lieu = 'HONG KONG'
+
+-- 11
+SELECT lieu
+FROM `transaction`
+WHERE prix > 150
+
+-- 12
+SELECT *
+FROM `transaction`
+WHERE lieu = 'PARIS'
+    AND prix < 50
+
+-- 13
+SELECT lieu
+FROM `transaction`
+WHERE date LIKE '2014-%'
