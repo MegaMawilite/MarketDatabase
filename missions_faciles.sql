@@ -23,3 +23,29 @@ SELECT nom
 FROM `trader`
 WHERE anneeExperience >= 5
     AND anneeExperience <= 10
+
+-- 06
+SELECT classe_actif
+FROM `trader`
+WHERE classe_actif LIKE 'ch%'
+
+-- 07
+SELECT nom
+FROM `equipe`
+WHERE style = 'arbitrage statistique'
+
+-- 08
+SELECT nom
+FROM `equipe`
+WHERE chef = 'Smith'
+
+-- 09
+SELECT *
+FROM `transaction`
+ORDER BY nom ASC
+
+-- 10
+SELECT *
+FROM `transaction`
+WHERE date = '2019-04-20'
+    AND lieu = 'HONG KONG'
