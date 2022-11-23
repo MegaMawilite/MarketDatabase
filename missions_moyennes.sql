@@ -73,3 +73,37 @@ WHERE nomEquipe = ANY (
 )
     AND prix < 20
 ORDER BY lieu ASC
+
+-- 03
+SELECT COUNT(*)
+FROM `transaction`
+WHERE nomEquipe = ANY (
+    SELECT nom
+    FROM `equipe`
+    WHERE style = 'trading the volatilite'
+)
+    AND date LIKE '2015-%'
+
+-- 04
+SELECT lieu, AVG(prix)
+FROM `transaction`
+WHERE nomEquipe = ANY (
+    SELECT nom
+    FROM `equipe`
+    WHERE style = 'market making'
+)
+GROUP BY lieu
+
+-- 05
+SELECT classe_actif
+FROM `trader`
+WHERE nomEquipe = ANY (
+    SELECT nom
+    FROM `equipe`
+    WHERE chef = 'Smith'
+)
+    AND nomEquipe = ANY (
+        SELECT nomEquipe
+        FROM `transaction`
+        WHERE date = '2016-01-01'
+    )
